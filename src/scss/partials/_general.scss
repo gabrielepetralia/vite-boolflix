@@ -1,0 +1,17 @@
+@use "./mixin" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 98%;
+  max-width: 1840px;
+  margin: 0 auto;
+}

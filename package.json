@@ -13,6 +13,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "sass": "^1.62.1",
     "vite": "^4.3.2"
