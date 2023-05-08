@@ -9,6 +9,11 @@ export default {
     Card,
   },
 
+  props : {
+    title : String,
+    category : String,
+  },
+
   data() {
     return {
       store,
@@ -18,10 +23,11 @@ export default {
 </script>
 
 <template>
+  <h1 class="txt-white">{{ title }}</h1>
   <div class="cards-container">
     <Card
-      v-for="(card, index) in store.apiRes"
-      :key="index"
+      v-for="card in store[category]"
+      :key="card.id"
       :card="card"
     />
   </div>

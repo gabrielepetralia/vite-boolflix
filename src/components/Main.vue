@@ -1,4 +1,5 @@
 <script>
+import { store } from "../data/store"
 import CardsContainer from "./CardsContainer.vue"
 
 export default {
@@ -6,6 +7,12 @@ export default {
 
   components : {
     CardsContainer,
+  },
+
+  data() {
+    return {
+      store,
+    }
   }
 }
 </script>
@@ -13,7 +20,8 @@ export default {
 <template>
   <main>
     <div class="container">
-      <CardsContainer/>
+      <CardsContainer v-if="store.movie.length > 0" title="Film" category="movie"/>
+      <CardsContainer v-if="store.tv.length > 0" title="Serie TV" category="tv"/>
     </div>
   </main>
 </template>

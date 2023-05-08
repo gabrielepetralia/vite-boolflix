@@ -2,8 +2,8 @@
 export default {
   name : "Card",
 
-  props: {
-    card: Object,
+  props : {
+    card : Object,
   }
 }
 </script>
@@ -11,8 +11,8 @@ export default {
 <template>
   <div class="card">
     <ul>
-      <li><strong>Titolo</strong> : {{ card.title }}</li>
-      <li><strong>Titolo Originale</strong> : {{ card.original_title }}</li>
+      <li><strong>Titolo</strong> : {{ card.title || card.name }}</li>
+      <li><strong>Titolo Originale</strong> : {{ card.original_title || card.original_name }}</li>
       <li><strong>Lingua</strong> : {{ card.original_language }}</li>
       <li><strong>Voto</strong> : {{ card.vote_average }}</li>
       <li><strong>Descrizione</strong> : {{ card.overview }}</li>

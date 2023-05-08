@@ -73,7 +73,7 @@ export default {
     .container {
       @include centerFlex("vertical");
       justify-content: space-between;
-      padding : 15px;
+      padding : 15px 0;
 
       .header-left {
         @include centerFlex("vertical");

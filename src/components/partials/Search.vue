@@ -9,6 +9,19 @@ export default {
       store,
     }
   },
+
+  methods : {
+    search() {
+      if (store.category.length > 0) {
+        store["movie"] = [],
+        store["tv"] = [],
+        store.getApi(store.category);
+      } else {
+        store.getApi("movie");
+        store.getApi("tv");
+      }
+    }
+  }
 }
 </script>
 
@@ -18,13 +31,13 @@ export default {
       <div @click="store.isSearching = !store.isSearching">
         <i class="txt-white fs-xl fa-solid fa-magnifying-glass"></i>
       </div>
-      <input v-model="store.query" @keyup.enter="store.getApi" class="fs-sm" type="text" placeholder="Titolo">
+      <input v-model.trim="store.query" @keyup.enter="search" class="fs-sm" type="text" placeholder="Titolo">
     </div>
 
-    <select>
+    <select v-model="store.category" @change="search"> 
       <option selected value="">All</option>
-      <option value="">Film</option>
-      <option value="">Serie TV</option>
+      <option value="movie">Film</option>
+      <option value="tv">Serie TV</option>
     </select>
   </div>
 </template>
