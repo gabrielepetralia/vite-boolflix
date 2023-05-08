@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <h1 class="txt-white">{{ title }}</h1>
+  <h3 class="fw-medium txt-white">{{ title }}</h3>
   <div class="cards-container">
     <Card
       v-for="card in store[category]"
@@ -38,5 +38,9 @@ export default {
     display : flex;
     flex-wrap : wrap;
     justify-content : space-between;
+    
+    &:not(:last-child) {
+      margin-bottom : 60px;
+    }
   }
 </style>

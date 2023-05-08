@@ -9,7 +9,7 @@ export const store = reactive ({
   tv : [],
   query : "",
   category : "",
-  isLoading : true,
+  isLoading : false,
   flags : [
     "ar",
     "ca",
@@ -31,6 +31,7 @@ export const store = reactive ({
     "no",
     "pl",
     "pt",
+    "ro",
     "ru",
     "sk",
     "sv",
@@ -50,7 +51,9 @@ export const store = reactive ({
       }
     })
     .then( res => {
+      this.isLoading = true;
       this[category] = res.data.results;
+      this.isLoading = false;
     })
   },
 
