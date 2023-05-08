@@ -29,7 +29,12 @@ export default {
       <li><strong>Titolo Originale</strong> : {{ card.original_title || card.original_name }}</li>
       <li v-if="store.flags.includes(card.original_language)" class="flag"><img :src="getImage(card.original_language + '.png')" :alt="card.original_language"></li>
       <li v-else><strong>Lingua</strong> : {{ card.original_language }}</li>
-      <li><strong>Voto</strong> : {{ card.vote_average }}</li>
+      <li>
+        <div class="vote">
+          <i v-for="star in Math.ceil(card.vote_average / 2)" :key="star" class="fa-solid fa-star"></i>
+          <i v-for="star in (5 - Math.ceil(card.vote_average / 2))" :key="star" class="fa-regular fa-star"></i>
+        </div>
+      </li>
       <li v-if="card.overview.length > 0"><strong>Descrizione</strong> : {{ card.overview }}</li>
     </ul>
   </div>
