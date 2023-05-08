@@ -9,10 +9,36 @@ export const store = reactive ({
   tv : [],
   query : "",
   category : "",
-
-  getImage(img) {
-    return new URL(`../assets/img/${img}`, import.meta.url).href
-  },
+  flags : [
+    "ar",
+    "ca",
+    "cs",
+    "da",
+    "de",
+    "en",
+    "es",
+    "fr",
+    "hi",
+    "id",
+    "is",
+    "it",
+    "ja",
+    "ko",
+    "mr",
+    "ms",
+    "nl",
+    "no",
+    "pl",
+    "pt",
+    "ru",
+    "sk",
+    "sv",
+    "te",
+    "th",
+    "tl",
+    "tr",
+    "zh",
+  ],
 
   getApi(category) {
     axios.get( this.apiUrl + category, {

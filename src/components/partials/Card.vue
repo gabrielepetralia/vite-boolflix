@@ -1,9 +1,23 @@
 <script>
+import { store } from "../../data/store"
+
 export default {
   name : "Card",
 
   props : {
     card : Object,
+  },
+
+  data() {
+    return {
+      store,
+    }
+  },
+
+  methods : {
+    getImage(img) {
+      return new URL(`../../assets/img/flags/${img}`, import.meta.url).href
+    },
   }
 }
 </script>
@@ -13,9 +27,10 @@ export default {
     <ul>
       <li><strong>Titolo</strong> : {{ card.title || card.name }}</li>
       <li><strong>Titolo Originale</strong> : {{ card.original_title || card.original_name }}</li>
-      <li><strong>Lingua</strong> : {{ card.original_language }}</li>
+      <li v-if="store.flags.includes(card.original_language)" class="flag"><img :src="getImage(card.original_language + '.png')" :alt="card.original_language"></li>
+      <li v-else><strong>Lingua</strong> : {{ card.original_language }}</li>
       <li><strong>Voto</strong> : {{ card.vote_average }}</li>
-      <li><strong>Descrizione</strong> : {{ card.overview }}</li>
+      <li v-if="card.overview.length > 0"><strong>Descrizione</strong> : {{ card.overview }}</li>
     </ul>
   </div>
 </template>
@@ -31,6 +46,15 @@ export default {
 
       li {
         margin-bottom : 10px;
+
+        &.flag {
+          height: 26px;
+          max-width: 40px;
+          
+          img {
+            height: 100%;
+          }
+        }
       }
     }
   }

@@ -1,5 +1,4 @@
 <script>
-import { store } from "../data/store"
 import Search from "./partials/Search.vue"
 
 export default {
@@ -11,7 +10,6 @@ export default {
 
   data() {
     return {
-      store,
       logo : "logo-boolflix.png",
       nav : [
         {
@@ -29,6 +27,12 @@ export default {
       ]
     }
   },
+
+  methods : {
+    getImage(img) {
+      return new URL(`../assets/img/${img}`, import.meta.url).href
+    },
+  }
 }
 </script>
 
@@ -38,7 +42,7 @@ export default {
 
       <div class="header-left">
         <div class="logo">
-          <img :src="store.getImage(logo)" alt="Logo Boolflix">
+          <img :src="getImage(logo)" alt="Logo Boolflix">
         </div>
   
         <nav>
