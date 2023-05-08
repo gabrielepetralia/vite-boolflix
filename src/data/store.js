@@ -9,6 +9,7 @@ export const store = reactive ({
   tv : [],
   query : "",
   category : "",
+  isLoading : true,
   flags : [
     "ar",
     "ca",

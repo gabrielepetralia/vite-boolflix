@@ -25,6 +25,8 @@ export default {
 <template>
   <div class="card">
     <ul>
+      <li v-if="card.poster_path != null"><img :src="`https://image.tmdb.org/t/p/w342${card.poster_path}` || getImage(img - not - found.png)" :alt="`Poster ${ card.title || card.name }`"></li>
+      <li v-else><img src="../../assets/img/no-img.png" alt=""></li>
       <li><strong>Titolo</strong> : {{ card.title || card.name }}</li>
       <li><strong>Titolo Originale</strong> : {{ card.original_title || card.original_name }}</li>
       <li v-if="store.flags.includes(card.original_language)" class="flag"><img :src="getImage(card.original_language + '.png')" :alt="card.original_language"></li>
