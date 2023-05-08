@@ -68,11 +68,12 @@ export default {
     left : 0;
     z-index : 999;
     background-color : $secondary-color;
+    // box-shadow: inset 0 5px 8px rgba(0,0,0,1);
 
     .container {
       @include centerFlex("vertical");
       justify-content: space-between;
-      padding : 20px;
+      padding : 15px;
 
       .header-left {
         @include centerFlex("vertical");

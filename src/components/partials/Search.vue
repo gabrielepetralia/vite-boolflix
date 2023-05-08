@@ -18,7 +18,7 @@ export default {
       <div @click="store.isSearching = !store.isSearching">
         <i class="txt-white fs-xl fa-solid fa-magnifying-glass"></i>
       </div>
-      <input @keyup.enter="store.isSearching = false" class="fs-sm" type="text" placeholder="Titolo">
+      <input v-model="store.query" @keyup.enter="store.getApi" class="fs-sm" type="text" placeholder="Titolo">
     </div>
 
     <select>
